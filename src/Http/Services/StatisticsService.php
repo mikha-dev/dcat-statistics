@@ -50,15 +50,19 @@ class StatisticsService
     {
         $city_reader = new Reader(public_path("vendor/dcat-admin-extensions/mikha-dev/dcat-statistics/GeoLite2-Country.mmdb"));
         $client_ip   = $_SERVER['REMOTE_ADDR'];
-        if ($client_ip == "127.0.0.1") {
-            $client_ip = '218.56.108.218';
+        $country_name = "Unknown";
+
+        if ( is_null($client_ip) || $client_ip == "127.0.0.1") {
+            return $country_name;
         }
+
         try {
             $record       = $city_reader->country($client_ip);
-            $country_name = $record->country->names['zh-CN'];
+            $country_name = $record->country->names['en'];
         } catch (\Exception $exception) {
-            $country_name = "未知";
+            $country_name = "Unknown";
         }
+
         return $country_name;
     }
 }
