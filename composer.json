@@ -1,6 +1,6 @@
 {
     "name": "mikha-dev/dcat-statistics",
-    "description": "dcat-admin",
+    "description": "Visitor Statistics",
     "type": "library",
     "alias": "Visitor Statistics",
     "keywords": [
