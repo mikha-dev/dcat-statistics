@@ -51,7 +51,7 @@ class StatisticsController extends Controller
                 $row->column(8, function (Column $column) use ($urls) {
                     $items = $urls;
                     $num   = 8;
-                    $title = "Page Visit Rank;
+                    $title = 'Page Visit Rank';
                     $column->row(Admin::view('mikha-dev.dcat-statistics::table', compact('items', 'num', 'title')));
                 });
                 $row->column(4, function (Column $column) use ($referrers) {

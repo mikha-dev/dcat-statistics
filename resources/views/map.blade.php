@@ -1,7 +1,7 @@
 <script src="@mikha-dev.dcat-statistics"></script>
 <div class="box Dcat_Admin_Widgets_Box" style="margin-top: 10px">
     <div class="box-header with-border">
-        <h3 class="box-title">访问区域统计</h3>
+        <h3 class="box-title">Visitors Regional Statistics</h3>
     </div>
     <div class="box-body collapse show">
         <div id="map" style="width: 100%;height:600px;"></div>
@@ -247,7 +247,7 @@
             },
             geo: {
                 show: true,
-                nameMap: nameMap,
+                /*nameMap: nameMap, */
                 map: 'world',
                 label: {
                     normal: {
@@ -277,7 +277,7 @@
                     type: 'map',
                     map: 'world',
                     geoIndex: 1,
-                    nameMap: nameMap,
+                    /* nameMap: nameMap, */
                     data: colorMapData,
                     aspectScale: 0.75, //长宽比
                     showLegendSymbol: false, // 存在legend时显示
