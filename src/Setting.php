@@ -8,6 +8,6 @@ class Setting extends Form
 {
     public function form()
     {
-        $this->text('title',"标题")->required();
+        $this->text('title',"Title")->required();
     }
 }

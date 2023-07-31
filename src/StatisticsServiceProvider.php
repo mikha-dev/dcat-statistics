@@ -20,12 +20,11 @@ class StatisticsServiceProvider extends ServiceProvider
         ]
     ];
 
-    // 定义菜单
     protected $menu = [
         [
-            'title' => '访客统计',
+            'title' => 'Visitor Statistics',
             'uri'   => 'auth/statistics',
-            'icon'  => '', // 图标可以留空
+            'icon'  => '',
         ],
     ];
 

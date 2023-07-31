@@ -33,7 +33,7 @@ class StatisticsController extends Controller
         $devices  = Session::query()->whereBetween("created_at", [$start, $end])->groupBy('device')->select([DB::raw("device as name"), DB::raw("count(*) as value")])->orderBy("value", "desc")->get();
         $screens  = Session::query()->whereBetween("created_at", [$start, $end])->groupBy('screen')->select([DB::raw("screen as name"), DB::raw("count(*) as value")])->orderBy("value", "desc")->get();
         return $content
-            ->title('访问数据统计')
+            ->title('Access statistics')
             ->description("")
             ->body(function (Row $row) use ($days, $countries, $urls, $referrers, $browsers, $os, $devices, $screens) {
 
@@ -42,7 +42,7 @@ class StatisticsController extends Controller
                 });
 
                 $row->column(12, function (Column $column) use ($urls, $days) {
-                    $title  = "浏览量统计";
+                    $title  = "Browsing statistics";
                     $names  = $this->getVisitorsCount($days)['names'];
                     $values = $this->getVisitorsCount($days)['values'];
                     $column->row(Admin::view('mikha-dev.dcat-statistics::bar', compact('title', 'names', 'values')));
@@ -51,39 +51,39 @@ class StatisticsController extends Controller
                 $row->column(8, function (Column $column) use ($urls) {
                     $items = $urls;
                     $num   = 8;
-                    $title = "页面访问排名";
+                    $title = "Page Visit Rank;
                     $column->row(Admin::view('mikha-dev.dcat-statistics::table', compact('items', 'num', 'title')));
                 });
                 $row->column(4, function (Column $column) use ($referrers) {
                     $items = $referrers;
                     $num   = 8;
-                    $title = "来源域名排名";
+                    $title = "Source Domain Ranking";
                     $column->row(Admin::view('mikha-dev.dcat-statistics::table', compact('items', 'num', 'title')));
                 });
 
                 $row->column(3, function (Column $column) use ($browsers) {
                     $items = $browsers;
                     $num   = 8;
-                    $title = "浏览器";
+                    $title = "Browser";
                     $column->row(Admin::view('mikha-dev.dcat-statistics::table', compact('items', 'num', 'title')));
                 });
 
                 $row->column(3, function (Column $column) use ($os) {
                     $items = $os;
                     $num   = 8;
-                    $title = "操作系统";
+                    $title = "Operating System";
                     $column->row(Admin::view('mikha-dev.dcat-statistics::table', compact('items', 'num', 'title')));
                 });
                 $row->column(3, function (Column $column) use ($devices) {
                     $items = $devices;
                     $num   = 8;
-                    $title = "设备";
+                    $title = "Device";
                     $column->row(Admin::view('mikha-dev.dcat-statistics::table', compact('items', 'num', 'title')));
                 });
                 $row->column(3, function (Column $column) use ($screens) {
                     $items = $screens;
                     $num   = 8;
-                    $title = "分辨率";
+                    $title = "Resolution";
                     $column->row(Admin::view('mikha-dev.dcat-statistics::table', compact('items', 'num', 'title')));
                 });
 
@@ -93,7 +93,7 @@ class StatisticsController extends Controller
                 $row->column(4, function (Column $column) use ($countries) {
                     $items = $countries;
                     $num   = 8;
-                    $title = "国家和地区访问排名";
+                    $title = "Country and Territory Access Ranking";
                     $column->row(Admin::view('mikha-dev.dcat-statistics::table', compact('items', 'num', 'title')));
                 });
 
