@@ -1,15 +1,15 @@
 <?php
 
-namespace mikha-dev\Statistics\Http\Controllers;
+namespace OsKoala\Statistics\Http\Controllers;
 
 use Dcat\Admin\Layout\Column;
 use Dcat\Admin\Layout\Content;
 use Dcat\Admin\Admin;
 use Dcat\Admin\Layout\Row;
 use Illuminate\Http\Request;
-use mikha-dev\Statistics\Http\Services\StatisticsService;
-use mikha-dev\Statistics\Models\PageView;
-use mikha-dev\Statistics\Models\Session;
+use OsKoala\Statistics\Http\Services\StatisticsService;
+use OsKoala\Statistics\Models\PageView;
+use OsKoala\Statistics\Models\Session;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 
@@ -38,63 +38,63 @@ class StatisticsController extends Controller
             ->body(function (Row $row) use ($days, $countries, $urls, $referrers, $browsers, $os, $devices, $screens) {
 
                 $row->column(12, function (Column $column) {
-                    $column->row(Admin::view('mikha-dev.statistics::time-range'));
+                    $column->row(Admin::view('mikha-dev.dcat-statistics::time-range'));
                 });
 
                 $row->column(12, function (Column $column) use ($urls, $days) {
                     $title  = "浏览量统计";
                     $names  = $this->getVisitorsCount($days)['names'];
                     $values = $this->getVisitorsCount($days)['values'];
-                    $column->row(Admin::view('mikha-dev.statistics::bar', compact('title', 'names', 'values')));
+                    $column->row(Admin::view('mikha-dev.dcat-statistics::bar', compact('title', 'names', 'values')));
                 });
 
                 $row->column(8, function (Column $column) use ($urls) {
                     $items = $urls;
                     $num   = 8;
                     $title = "页面访问排名";
-                    $column->row(Admin::view('mikha-dev.statistics::table', compact('items', 'num', 'title')));
+                    $column->row(Admin::view('mikha-dev.dcat-statistics::table', compact('items', 'num', 'title')));
                 });
                 $row->column(4, function (Column $column) use ($referrers) {
                     $items = $referrers;
                     $num   = 8;
                     $title = "来源域名排名";
-                    $column->row(Admin::view('mikha-dev.statistics::table', compact('items', 'num', 'title')));
+                    $column->row(Admin::view('mikha-dev.dcat-statistics::table', compact('items', 'num', 'title')));
                 });
 
                 $row->column(3, function (Column $column) use ($browsers) {
                     $items = $browsers;
                     $num   = 8;
                     $title = "浏览器";
-                    $column->row(Admin::view('mikha-dev.statistics::table', compact('items', 'num', 'title')));
+                    $column->row(Admin::view('mikha-dev.dcat-statistics::table', compact('items', 'num', 'title')));
                 });
 
                 $row->column(3, function (Column $column) use ($os) {
                     $items = $os;
                     $num   = 8;
                     $title = "操作系统";
-                    $column->row(Admin::view('mikha-dev.statistics::table', compact('items', 'num', 'title')));
+                    $column->row(Admin::view('mikha-dev.dcat-statistics::table', compact('items', 'num', 'title')));
                 });
                 $row->column(3, function (Column $column) use ($devices) {
                     $items = $devices;
                     $num   = 8;
                     $title = "设备";
-                    $column->row(Admin::view('mikha-dev.statistics::table', compact('items', 'num', 'title')));
+                    $column->row(Admin::view('mikha-dev.dcat-statistics::table', compact('items', 'num', 'title')));
                 });
                 $row->column(3, function (Column $column) use ($screens) {
                     $items = $screens;
                     $num   = 8;
                     $title = "分辨率";
-                    $column->row(Admin::view('mikha-dev.statistics::table', compact('items', 'num', 'title')));
+                    $column->row(Admin::view('mikha-dev.dcat-statistics::table', compact('items', 'num', 'title')));
                 });
 
                 $row->column(8, function (Column $column) use ($countries) {
-                    $column->row(Admin::view('mikha-dev.statistics::map', compact('countries')));
+                    $column->row(Admin::view('mikha-dev.dcat-statistics::map', compact('countries')));
                 });
                 $row->column(4, function (Column $column) use ($countries) {
                     $items = $countries;
                     $num   = 8;
                     $title = "国家和地区访问排名";
-                    $column->row(Admin::view('mikha-dev.statistics::table', compact('items', 'num', 'title')));
+                    $column->row(Admin::view('mikha-dev.dcat-statistics::table', compact('items', 'num', 'title')));
                 });
 
             });

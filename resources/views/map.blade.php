@@ -1,4 +1,4 @@
-<script src="@mikha-dev.statistics"></script>
+<script src="@mikha-dev.dcat-statistics"></script>
 <div class="box Dcat_Admin_Widgets_Box" style="margin-top: 10px">
     <div class="box-header with-border">
         <h3 class="box-title">访问区域统计</h3>

@@ -1,11 +1,11 @@
 <?php
 
-namespace mikha-dev\Statistics\Http\Services;
+namespace OsKoala\Statistics\Http\Services;
 
 use GeoIp2\Database\Reader;
 use Illuminate\Http\Request;
-use mikha-dev\Statistics\Models\PageView;
-use mikha-dev\Statistics\Models\Session;
+use OsKoala\Statistics\Models\PageView;
+use OsKoala\Statistics\Models\Session;
 use Jenssegers\Agent\Agent;
 
 class StatisticsService
@@ -48,7 +48,7 @@ class StatisticsService
 
     public function getCountryName()
     {
-        $city_reader = new Reader(public_path("vendor/dcat-admin-extensions/mikha-dev/statistics/GeoLite2-Country.mmdb"));
+        $city_reader = new Reader(public_path("vendor/dcat-admin-extensions/mikha-dev/dcat-statistics/GeoLite2-Country.mmdb"));
         $client_ip   = $_SERVER['REMOTE_ADDR'];
         if ($client_ip == "127.0.0.1") {
             $client_ip = '218.56.108.218';
