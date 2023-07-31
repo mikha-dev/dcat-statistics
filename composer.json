@@ -2,6 +2,7 @@
     "name": "mikha-dev/dcat-statistics",
     "description": "dcat-admin",
     "type": "library",
+    "alias": "Visitor Statistics",
     "keywords": [
         "dcat-admin",
         "extension"
