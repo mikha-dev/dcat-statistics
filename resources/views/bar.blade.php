@@ -50,7 +50,7 @@
             series: [
 
                 {
-                    name: '访问量',
+                    name: 'Views',
                     type: 'bar',
                     barWidth: '40%',
                     data: values
