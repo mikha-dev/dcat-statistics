@@ -16,9 +16,9 @@
                     <tr>
                         <td>
                             @if(isset($item['name']) && $item['name'] != "")
-                                {{$item['name']??"未知"}}
+                                {{$item['name']??"Unknown"}}
                             @else
-                                未知
+                                Unknown
                             @endif
                         </td>
                         <td>

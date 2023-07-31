@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Session extends Model
 {
+    protected $table = 'admin_sessions';
     use HasDateTimeFormatter;
 
     protected $guarded = [];
