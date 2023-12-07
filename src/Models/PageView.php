@@ -9,7 +9,5 @@ class PageView extends Model
 {
     use HasFactory;
 
-    protected $table = 'admin_page_views';
-
     protected $guarded = [];
 }
