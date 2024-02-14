@@ -18,7 +18,7 @@ class StatisticsService
         $browser       = $agent->browser();
         $os            = $agent->platform();
         $device        = $agent->device();
-        $lang          = $agent->languages()[0];
+        $lang          = (count($agent->languages()) > 0) ? $agent->languages()[0] : 'en';
         $screen_width  = $request->input('screen_width');
         $screen_height = $request->input('screen_height');
         $path          = $request->input('path');
